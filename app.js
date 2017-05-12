@@ -8,8 +8,7 @@ var user=require('./routes/user.js');
 var comment=require('./routes/comment.js');
 var bodyParser=require('body-parser');
 
-var session=require('express-session');
-//var cookieParser=require('cookie-parser');
+var session=require('express-session'); 
 
 var app=express();
 
@@ -18,8 +17,7 @@ app.set('view engine','ejs');
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
-//app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended:false})); 
 var session=require('express-session');
 app.use(session({secret:"qazwsxedcrfvtgbyhnujm",resave: true, saveUninitialized: true}));
 
@@ -60,7 +58,7 @@ app.use(function(error, req, res, next) {
      res.status(500).render('500');
 });
 
-var port = process.env.PORT || 8092;
+var port = process.env.PORT || 8080;
 
 var server=app.listen(port,function(req,res){
     console.log(chalk.green("Catch the action at http://localhost:"+port));
